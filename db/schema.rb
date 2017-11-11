@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171111015318) do
+ActiveRecord::Schema.define(version: 20171111032910) do
 
   create_table "super_d_uploads", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -18,6 +18,10 @@ ActiveRecord::Schema.define(version: 20171111015318) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.string "imgfile_file_name"
+    t.string "imgfile_content_type"
+    t.integer "imgfile_file_size"
+    t.datetime "imgfile_updated_at"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

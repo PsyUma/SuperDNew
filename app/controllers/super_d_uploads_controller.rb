@@ -1,6 +1,6 @@
 class SuperDUploadsController < ApplicationController
   before_action :set_super_d_upload, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user, except: [:index]
   # GET /super_d_uploads
   # GET /super_d_uploads.json
   def index
@@ -14,7 +14,8 @@ class SuperDUploadsController < ApplicationController
 
   # GET /super_d_uploads/new
   def new
-    @super_d_upload = SuperDUpload.new
+    @super_d_uploads = SuperDUpload.all
+    @super_d_upload = current_user.super_d_uploads.build
   end
 
   # GET /super_d_uploads/1/edit
@@ -24,12 +25,12 @@ class SuperDUploadsController < ApplicationController
   # POST /super_d_uploads
   # POST /super_d_uploads.json
   def create
-    @super_d_upload = SuperDUpload.new(super_d_upload_params)
+    @super_d_upload = current_user.super_d_uploads.build(super_d_upload_params)
 
     respond_to do |format|
       if @super_d_upload.save
         format.html { redirect_to @super_d_upload, notice: 'Super d upload was successfully created.' }
-        format.json { render :show, status: :created, location: @super_d_upload }
+        format.json { render :new, status: :created, location: @super_d_upload }
       else
         format.html { render :new }
         format.json { render json: @super_d_upload.errors, status: :unprocessable_entity }
@@ -69,6 +70,7 @@ class SuperDUploadsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def super_d_upload_params
-      params.require(:super_d_upload).permit(:title, :body)
+      params.require(:super_d_upload).permit(:title, :body, :imgfile)
     end
 end
+
