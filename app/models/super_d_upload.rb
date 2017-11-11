@@ -1,0 +1,2 @@
+class SuperDUpload < ApplicationRecord
+end

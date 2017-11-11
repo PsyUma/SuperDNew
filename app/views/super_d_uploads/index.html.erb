@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Super D Uploads</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @super_d_uploads.each do |super_d_upload| %>
+      <tr>
+        <td><%= super_d_upload.title %></td>
+        <td><%= super_d_upload.body %></td>
+        <td><%= link_to 'Show', super_d_upload %></td>
+        <td><%= link_to 'Edit', edit_super_d_upload_path(super_d_upload) %></td>
+        <td><%= link_to 'Destroy', super_d_upload, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Super D Upload', new_super_d_upload_path %>

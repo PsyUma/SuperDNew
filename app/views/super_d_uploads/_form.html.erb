@@ -1,0 +1,27 @@
+<%= form_with(model: super_d_upload, local: true) do |form| %>
+  <% if super_d_upload.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(super_d_upload.errors.count, "error") %> prohibited this super_d_upload from being saved:</h2>
+
+      <ul>
+      <% super_d_upload.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :super_d_upload_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body, id: :super_d_upload_body %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
