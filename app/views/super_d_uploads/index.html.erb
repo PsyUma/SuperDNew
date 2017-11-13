@@ -16,9 +16,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 <div class="w3-top">
  <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
   <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
-  <a href="super_d_upload#index" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>SuperD</a>
-  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Sign In"><i class="fa fa-user"></i>SignIn</a>
-  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Sign Up"><i class="fa fa-user"></i>SignUp</a>
+  <%= link_to "SuperD", super_d_uploads_path,:class=>"w3-bar-item w3-button w3-padding-large w3-theme-d4" %>
+  <%= link_to "SignIn", new_user_session_path, :class=>"w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white", :title=>"Sign In" %>
+  <%= link_to "SignUp", new_user_registration_path, :class=>"w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white", :title=>"Sign Up" %>
+<%= link_to "Post", new_super_d_upload_path, :class=>"w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white", :title=>"Sign Up" %>
 </div>
 </div>
 
@@ -36,27 +37,29 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
   <div class="w3-row">
     <!-- Left Column -->
     <div class="w3-col m3">
-
-    <!-- End Left Column -->
+	<div class="w3-card w3-round w3-white">
+        <div class="w3-container">
+         <h4 class="w3-center">Login to view and post</h4>
     </div>
+</div>
+    <!-- End Left Column -->
+  </div>
 
     <!-- Middle Column -->
     <div class="w3-col m7">
-      <% @super_d_uploads.each do |super_d_upload| %>
+
+<% @super_d_uploads.each do |super_d_upload| %>
       <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
         <img src="/w3images/avatar6.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
         <span class="w3-right w3-opacity">32 min</span>
         <h4><%= super_d_upload.title %></h4><br>
         <hr class="w3-clear">
         <p>Have you seen this?</p>
-        <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
+        <%= image_tag super_d_upload.imgfile.url(:medium), :style=>"width:100%", :class=>"w3-margin-bottom" %>
         <p><%= super_d_upload.body %></p>
         <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button>
       </div>
       <% end %>
-
-
-    <!-- End Middle Column -->
     </div>
 
     <!-- Right Column -->

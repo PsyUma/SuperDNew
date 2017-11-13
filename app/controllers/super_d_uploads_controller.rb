@@ -1,6 +1,6 @@
 class SuperDUploadsController < ApplicationController
   before_action :set_super_d_upload, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user, except: [:index]
+  before_action :authenticate_user!, except: [:index]
   # GET /super_d_uploads
   # GET /super_d_uploads.json
   def index

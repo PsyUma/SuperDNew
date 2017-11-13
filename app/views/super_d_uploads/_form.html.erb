@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>SuperD</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -16,10 +16,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 <div class="w3-top">
  <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
   <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
-  <a href="super_d_upload#new" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>SuperD</a>
-  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="LogOut"><i class="fa fa-user"></i>LogOut</a>
-  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="My Account"><img src="/w3images/avatar2.png" class="w3-circle" style="height:25px;width:25px" alt="Avatar"></a>
- </div>
+<%= link_to "SuperD", new_super_d_upload_path,:class=>"w3-bar-item w3-button w3-padding-large w3-theme-d4" %>
+  <%= link_to("SignOut", destroy_user_session_path, :method=> :delete, :class=>"w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white", :title=>"SignOut") %>
+  
+</div>
 </div>
 
 <!-- Navbar on small screens -->
@@ -150,8 +150,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
         <h4><%= super_d_upload.title %></h4><br>
         <hr class="w3-clear">
         <p>Have you seen this?</p>
-        <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
-        <p><%= super_d_upload.body %></p>
+<%= image_tag super_d_upload.imgfile.url(:medium), :style=>"width:100%", :class=>"w3-margin-bottom" %>        
+<p><%= super_d_upload.body %></p>
         <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button>
       </div>
       <% end %>
