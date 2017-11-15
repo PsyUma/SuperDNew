@@ -70,7 +70,7 @@ class SuperDUploadsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def super_d_upload_params
-      params.require(:super_d_upload).permit(:title, :body, :imgfile)
+      params.require(:super_d_upload).permit(:title, :body, :imgfile, :created_at)
     end
 end
 

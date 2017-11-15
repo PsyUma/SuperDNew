@@ -10,6 +10,46 @@
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 </style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+.fa:hover {
+    opacity: 0.7;
+}
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+</style>
 <body class="w3-theme-l5">
 
 <!-- Navbar -->
@@ -17,9 +57,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
  <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
   <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
   <%= link_to "SuperD", super_d_uploads_path,:class=>"w3-bar-item w3-button w3-padding-large w3-theme-d4" %>
-  <%= link_to "SignIn", new_user_session_path, :class=>"w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white", :title=>"Sign In" %>
-  <%= link_to "SignUp", new_user_registration_path, :class=>"w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white", :title=>"Sign Up" %>
-<%= link_to "Post", new_super_d_upload_path, :class=>"w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white", :title=>"Sign Up" %>
+<%= link_to "Board", board_index_path,:class=>"w3-bar-item w3-button w3-padding-large w3-theme-d4" %>
+<%= link_to "Post", new_super_d_upload_path, :class=>"w3-bar-item w3-button w3-padding-large w3-theme-d4", :title=>"Post" %>
+<%= link_to "SignIn", new_user_session_path, :class=>"w3-bar-item w3-button w3-padding-large w3-theme-d4", :title=>"Sign In" %>
+  <%= link_to "SignUp", new_user_registration_path, :class=>"w3-bar-item w3-button w3-padding-large w3-theme-d4", :title=>"Sign Up" %>
 </div>
 </div>
 
@@ -50,8 +91,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 
 <% @super_d_uploads.each do |super_d_upload| %>
       <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
-        <img src="/w3images/avatar6.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-        <span class="w3-right w3-opacity">32 min</span>
+        <span class="w3-right w3-opacity"><%= super_d_upload.created_at %></span>
         <h4><%= super_d_upload.title %></h4><br>
         <hr class="w3-clear">
         <p>Have you seen this?</p>
@@ -90,13 +130,24 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 <br>
 
 <!-- Footer -->
-<footer class="w3-container w3-theme-d3 w3-padding-16">
-  <h5>Footer</h5>
-</footer>
 
-<footer class="w3-container w3-theme-d5">
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-</footer>
+<footer class="w3-container w3-theme-d3 w3-padding-16">
+   <a href="https://www.facebook.com/3DdesignSuperD/" class="fa fa-facebook" target="_blank">
+                    </a>
+                    <a href="https://plus.google.com/u/1/112179308391556744850" class="fa fa-google-plus" target="_blank">
+                    </a>
+                    <a href="https://www.instagram.com/SuperD.app/" class="fa fa-instagram" target="_blank">
+                    </a>
+                    <a href="https://www.linkedin.com/in/superd-app-09a978148/" class="fa fa-linkedin" target="_blank">
+                    </a>
+                    <a href="https://twitter.com/SuperD_app" class="fa fa-twitter" target="_blank">
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCWif-Z4UoygHQ1JfG-WpDyA/featured" class="fa fa-youtube" target="_blank"
+>
+                    </a>
+</footer> 
+
+
 
 <script>
 // Accordion

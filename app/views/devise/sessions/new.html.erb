@@ -10,6 +10,52 @@
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+</style>
 <body class="w3-theme-l5">
 
 <!-- Navbar -->
@@ -49,16 +95,22 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
         <div class="w3-col m12">
           <div class="w3-card w3-round w3-white">
             <div class="w3-container w3-padding">
-              <h6 class="w3-opacity">Log In to share models?</h6>
+              <h6 class="w3-opacity">LogIn to share SuperD models</h6>
+<div class="field">
+<%= f.label :EmailId %>
               <%= f.email_field :email, autofocus: true, :class=>"w3-border w3-padding", :contenteditable=>"true" %>
-              <%= f.password_field :password, autocomplete: "off", :class=>"w3-border w3-padding", :contenteditable=>"true" %>
-              <% if devise_mapping.rememberable? -%>
+</div>
+<div class="field"> 
+<%= f.label :Password %>             
+<%= f.password_field :password, autocomplete: "off", :class=>"w3-border w3-padding", :contenteditable=>"true" %>
+</div>              
+<% if devise_mapping.rememberable? -%>
                 <div class="field">
                   <%= f.check_box :remember_me %>
                   <%= f.label :remember_me %>
                 </div>
               <% end -%>
-              <button type="button" class="w3-button w3-theme"><%= f.submit "Log in" %></button>
+              <button type="button" class="w3-button w3-theme"><%= submit_tag 'LogIn' %></button>
               <%= render "devise/shared/links" %>
             </div>
           </div>
@@ -99,13 +151,24 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 
 <!-- Footer -->
 <footer class="w3-container w3-theme-d3 w3-padding-16">
-  <h5>Footer</h5>
-</footer>
+   <a href="https://www.facebook.com/3DdesignSuperD/" class="fa fa-facebook" target="_blank">
+                    </a>
 
-<footer class="w3-container w3-theme-d5">
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-</footer>
+                    <a href="https://plus.google.com/u/1/112179308391556744850" class="fa fa-google-plus" target="_blank">
+                    </a>
 
+                    <a href="https://www.instagram.com/SuperD.app/" class="fa fa-instagram" target="_blank">
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/superd-app-09a978148/" class="fa fa-linkedin" target="_blank">
+                    </a>
+
+                    <a href="https://twitter.com/SuperD_app" class="fa fa-twitter" target="_blank">
+                    </a>
+
+                    <a href="https://www.youtube.com/channel/UCWif-Z4UoygHQ1JfG-WpDyA/featured" class="fa fa-youtube" target="_blank">
+                    </a>
+</footer>
 <script>
 // Accordion
 function myFunction(id) {
