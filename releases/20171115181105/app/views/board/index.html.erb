@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<title>SuperD</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+.fa:hover {
+    opacity: 0.7;
+}
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+</style>
+<body class="w3-theme-l5">
+<!-- Navbar -->
+<div class="w3-top">
+ <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+<%= link_to "SuperD", new_super_d_upload_path,:class=>"w3-bar-item w3-button w3-padding-large w3-theme-d4" %>
+<%= link_to "Board", board_index_path,:class=>"w3-bar-item w3-button w3-padding-large w3-theme-d4" %>
+<%= link_to "Post", new_super_d_upload_path, :class=>"w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white", :title=>"
+Post" %>
+  <%= link_to("SignOut", destroy_user_session_path, :method=> :delete, :class=>"w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white", :title=>"SignOut") %>
+
+</div>
+</div>
+
+<!-- Navbar on small screens -->
+<div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">My Profile</a>
+</div>
+
+<!-- Page Container -->
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">
+  <!-- The Grid -->
+  <div class="w3-row">
+    <!-- Left Column -->
+    <div class="w3-col m3">
+      <!-- Profile -->
+      <div class="w3-card w3-round w3-white">
+        <div class="w3-container">
+         <h4 class="w3-center">My Profile</h4>
+         <p class="w3-center"><img src="/w3images/avatar3.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
+         <hr>
+         <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> Designer, UI</p>
+         <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> London, UK</p>
+         <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> April 1, 1988</p>
+        </div>
+      </div>
+      <br>
+
+      <!-- Accordion -->
+      <div class="w3-card w3-round">
+        <div class="w3-white">
+          <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-circle-o-notch fa-fw w3-margin-right"></i> My Groups</button>
+          <div id="Demo1" class="w3-hide w3-container">
+            <p>Some text..</p>
+          </div>
+          <button onclick="myFunction('Demo2')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-calendar-check-o fa-fw w3-margin-right"></i> My Events</button>
+          <div id="Demo2" class="w3-hide w3-container">
+            <p>Some other text..</p>
+          </div>
+          <button onclick="myFunction('Demo3')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i> My Photos</button>
+          <div id="Demo3" class="w3-hide w3-container">
+         <div class="w3-row-padding">
+         <br>
+           <div class="w3-half">
+             <img src="/w3images/lights.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/mountains.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/forest.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/fjords.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+         </div>
+          </div>
+        </div>
+      </div>
+      <br>
+
+      <!-- Interests -->
+      <div class="w3-card w3-round w3-white w3-hide-small">
+        <div class="w3-container">
+          <p>Interests</p>
+          <p>
+            <span class="w3-tag w3-small w3-theme-d5">News</span>
+            <span class="w3-tag w3-small w3-theme-l3">Design</span>
+            <span class="w3-tag w3-small w3-theme-l4">Art</span>
+            </p>
+        </div>
+      </div>
+      <br>
+
+    <!-- End Left Column -->
+    </div>
+
+    <!-- Middle Column -->
+    <div class="w3-col m7">
+
+
+            <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+
+              <%= form_tag 'users/filter' do %>
+                <div class="table-responsive">
+                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                      <th>Category</th>
+                      <th>Company</th>
+                      <th>Usertype</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td style="width:100%"> <select name="catid" style="width:100%">
+                        <option value="0">None</option>
+                        <%= @category.each do |user| %>
+                            <option value="<%= user['catid'] %>"><%= user['catname'] %></option>
+                        <% end %>
+                      </select></td>
+                      <td style="width:100%"><select name="companyid" style="width:100%">
+                        <option value="0">None</option>
+                        <%= @company.each do |user| %>
+
+                            <option value="<%= user['companyid'] %>"><%= user['companyname'] %></option>
+                        <% end %>
+                      </select></td>
+                      <td style="width:100%">  <select style="width:100%" name="usertypeid">
+                        <option value="0">None</option>
+                        <%= @usertype.each do |user| %>
+                            <option value="<%= user['usertypeid'] %>"><%= user['usertypename'] %></option>
+                        <% end %>
+                      </select></td>
+                    </tr>
+                    </tbody>
+			  </table>
+                </div>
+                <div><%= submit_tag 'Apply Filters' %></div>
+              <% end  %>
+
+            </div>
+
+
+        <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+
+<div class="table-responsive">
+                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+
+            <th>Category</th>
+            <th>Company</th>
+            <th>UserType</th>
+          </tr>
+        </thead>
+        <tbody>
+	  <%= paginate @users %>
+          <% @users.each do |suser| %>
+              <tr>
+                <td><%= suser['firstname'] %></td>
+                <td><%= suser['lastname'] %></td>
+                <td><%= suser['email'] %></td>
+                <td><%= suser['catname'] %></td>
+                <td><%= suser['companyname'] %></td>
+                <td><%= suser['usertypename'] %></td>
+              </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+</div>
+
+<div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+
+
+
+          <%= form_tag '/sendEmail' do %>
+              <%=text_area_tag 'embody'%>
+              </br>
+              <div><%= submit_tag 'SendEmail' %></div>
+          <% end  %>
+        </div>
+
+    <!-- End Middle Column -->
+    </div>
+
+    <!-- Right Column -->
+    <div class="w3-col m2">
+      <div class="w3-card w3-round w3-white w3-center">
+        <div class="w3-container">
+          <p>Upcoming Events:</p>
+          <img src="/w3images/forest.jpg" alt="Forest" style="width:100%;">
+          <p><strong>Holiday</strong></p>
+          <p>Friday 15:00</p>
+          <p><button class="w3-button w3-block w3-theme-l4">Info</button></p>
+        </div>
+      </div>
+      <br>
+
+      <div class="w3-card w3-round w3-white w3-padding-32 w3-center">
+        <p><i class="fa fa-bug w3-xxlarge"></i></p>
+      </div>
+
+    <!-- End Right Column -->
+    </div>
+
+  <!-- End Grid -->
+  </div>
+
+<!-- End Page Container -->
+</div>
+<br>
+
+<!-- Footer -->
+<footer class="w3-container w3-theme-d3 w3-padding-16">
+   <a href="https://www.facebook.com/3DdesignSuperD/" class="fa fa-facebook" target="_blank">
+                    </a>
+                    <a href="https://plus.google.com/u/1/112179308391556744850" class="fa fa-google-plus" target="_blank">
+                    </a>
+                    <a href="https://www.instagram.com/SuperD.app/" class="fa fa-instagram" target="_blank">
+                    </a>
+                    <a href="https://www.linkedin.com/in/superd-app-09a978148/" class="fa fa-linkedin" target="_blank">
+                    </a>
+                    <a href="https://twitter.com/SuperD_app" class="fa fa-twitter" target="_blank">
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCWif-Z4UoygHQ1JfG-WpDyA/featured" class="fa fa-youtube" target="_blank"
+>
+                    </a>
+</footer> 
+
+<script>
+// Accordion
+function myFunction(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        x.previousElementSibling.className += " w3-theme-d1";
+    } else {
+        x.className = x.className.replace("w3-show", "");
+        x.previousElementSibling.className =
+        x.previousElementSibling.className.replace(" w3-theme-d1", "");
+    }
+}
+
+// Used to toggle the menu on smaller screens when clicking on the menu button
+function openNav() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+
+</body>
+</html>
+
+
