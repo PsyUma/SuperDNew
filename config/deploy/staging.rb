@@ -60,4 +60,4 @@
 #     # password: "please use keys"
 #   }
 
-server '35.196.152.206', user: 'uni_umakant', roles: %w{app db web}
+server '35.196.106.252', user: 'uni_umakant', roles: %w{app db web}
